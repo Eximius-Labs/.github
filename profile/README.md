@@ -2,16 +2,16 @@
 
 ![Eximius Labs](https://raw.githubusercontent.com/Eximius-Labs/.github/main/profile/assets/git_banner.png)
 
-**One vector space for text, image, video, audio, and sensors — plus a perception layer. Open weights, self-hostable.**
+**One vector space for text, image, video, audio, and sensors, plus a perception layer and a memory layer. Open weights, self-hostable.**
 
 </div>
 
 ---
 
 Eximius Labs builds open-weight multimodal models that run entirely on your own hardware. The stack
-has two complementary families.
+has three complementary layers.
 
-**Fusion Embedding** is the memory layer. It maps text, images, video, audio, and sensor streams
+**Fusion Embedding** is the embedding layer. It maps text, images, video, audio, and sensor streams
 into a single shared vector space for retrieval, RAG, clustering, and cross-modal search. The
 weights are published and the models run on your own hardware.
 
@@ -19,13 +19,17 @@ weights are published and the models run on your own hardware.
 recognition on a frozen vision backbone, with a projector that drops its features into the Fusion
 Embedding space.
 
+**Engram** is the memory layer. It indexes a robot's video, audio, and motion into that shared space
+on one clock and answers questions about it in plain language, including temporal reasoning that
+retrieval alone cannot do. Try it in the [live playground](https://www.eximiuslabs.com/playground).
+
 ### The idea
 
 We extend a state-of-the-art frozen base with new modalities and senses without modifying a single
 base weight. Text, image, and video vectors stay bit-for-bit identical to the base model, so gaining
 a modality never costs you a re-index.
 
-### Fusion Embedding — the memory layer
+### Fusion Embedding — the embedding layer
 
 | Model | Description |
 |---|---|
@@ -43,8 +47,21 @@ motion. More senses are in training.
 |---|---|
 | [fusion-perception-1](https://github.com/Eximius-Labs/fusion-perception) | Frozen DINO backbone plus light heads: geometric place recognition ("where am I"), segmentation, and a projector that makes those features language-searchable in the Fusion Embedding space. |
 
+### Engram — the memory layer
+
+The open cross-modal memory layer for physical AI, built on Fusion Embedding. Index a robot's video,
+audio, and motion into one embedding space on a shared clock, then search and reason about it in
+plain language.
+
+```
+pip install engram-robomem
+```
+
+Code: [Eximius-Labs/engram](https://github.com/Eximius-Labs/engram) · [PyPI](https://pypi.org/project/engram-robomem) · [Playground](https://www.eximiuslabs.com/playground)
+
 ### Start here
 
-- **Code:** [fusion-embedding](https://github.com/Eximius-Labs/fusion-embedding) · [fusion-perception](https://github.com/Eximius-Labs/fusion-perception) — Apache-2.0
+- **Site:** [eximiuslabs.com](https://www.eximiuslabs.com)
+- **Code:** [fusion-embedding](https://github.com/Eximius-Labs/fusion-embedding) · [fusion-perception](https://github.com/Eximius-Labs/fusion-perception) · [engram](https://github.com/Eximius-Labs/engram) — Apache-2.0
 - **Weights:** [huggingface.co/EximiusLabs](https://huggingface.co/EximiusLabs)
 - **Technical report:** [arXiv:2607.18666](https://arxiv.org/abs/2607.18666)
