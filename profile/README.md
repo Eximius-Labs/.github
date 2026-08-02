@@ -19,7 +19,7 @@ weights are published and the models run on your own hardware.
 recognition on a frozen vision backbone, with a projector that drops its features into the Fusion
 Embedding space.
 
-**Engram** is the memory layer. It indexes a robot's video, audio, and motion into that shared space
+**Engram** is the memory layer. It indexes a robot's video, audio, motion, and touch into that shared space
 on one clock and answers questions about it in plain language, including temporal reasoning that
 retrieval alone cannot do. Try it in the [live playground](https://www.eximiuslabs.com/playground).
 
@@ -37,9 +37,10 @@ a modality never costs you a re-index.
 | [fusion-embedding-1](https://huggingface.co/EximiusLabs/fusion-embedding-1-2b-preview) | Connector-only architecture, 16.4M trained parameters. Final at v0.3. |
 | [Ember](https://huggingface.co/EximiusLabs/fusion-embedding-2-ember) | Thermal sense pack: a separately loadable adapter pack that adds infrared to fusion-embedding-2 as a fifth modality, 44.2M trained parameters. |
 | [Tremor](https://huggingface.co/EximiusLabs/fusion-embedding-2-tremor) | Inertial sense pack: reads a robot's or wearable's accelerometer as language. Ships a general base and a [Unitree-G1 head](https://huggingface.co/EximiusLabs/fusion-embedding-2-tremor-g1). |
+| [Tactus](https://huggingface.co/EximiusLabs/fusion-embedding-2-tactus) | Tactile sense pack: embeds 32x32 pressure/taxel arrays (FSR gloves, e-skins, robot hands) into the shared space; matches to exceeds the STAG (Nature 2019) supervised baseline while remaining open-vocabulary. |
 
 Sense packs are named for the physical trace their sensor reads. Ember reads heat; Tremor reads
-motion. More senses are in training.
+motion; Tactus reads touch. More senses are in training.
 
 ### Fusion Perception — the perception layer
 
@@ -50,8 +51,8 @@ motion. More senses are in training.
 ### Engram — the memory layer
 
 The open cross-modal memory layer for physical AI, built on Fusion Embedding. Index a robot's video,
-audio, and motion into one embedding space on a shared clock, then search and reason about it in
-plain language.
+audio, motion, and touch into one embedding space on a shared clock, then search and reason about it
+in plain language.
 
 ```
 pip install engram-robomem
