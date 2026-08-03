@@ -2,14 +2,29 @@
 
 ![Eximius Labs](https://raw.githubusercontent.com/Eximius-Labs/.github/main/profile/assets/git_banner.png)
 
-**One vector space for text, image, video, audio, and sensors, plus a perception layer, a memory layer, and a control layer. Open weights, self-hostable.**
+**Open models that give machines senses. Touch, heat, motion and sound, in one
+language-searchable space, with the memory and control layers around it.
+Open weights, self-hostable.**
 
 </div>
 
 ---
 
-Eximius Labs builds open-weight multimodal models and tools that run entirely on your own hardware.
-The stack has four complementary layers: sense, perceive, remember, act.
+A robot's cameras are well served. Its other senses are not. A pressure array, a thermal
+frame, an inertial trace and an audio clip all arrive as numbers that no model reads and
+nobody can search.
+
+Eximius Labs builds the models that read them. We freeze a strong multimodal base and
+attach senses from the outside, so adding a sensor costs a small trained head instead of a
+new foundation model, and every embedding you have already stored stays valid. Everything
+runs on your own hardware.
+
+Measured on held-out data: an open model that recognizes objects from a $10 pressure glove
+above the accuracy of the dataset authors' own supervised CNN; thermal-to-text retrieval
+lifted from 0.224 to 0.785; a hospital bed mat answering plain-English posture queries at
+0.957.
+
+The stack has four layers: sense, perceive, remember, act.
 
 **Fusion Embedding** is the embedding layer. It maps text, images, video, audio, and sensor streams
 into a single shared vector space for retrieval, RAG, clustering, and cross-modal search. The
